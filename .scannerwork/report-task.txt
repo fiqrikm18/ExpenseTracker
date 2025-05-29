@@ -1,0 +1,6 @@
+projectKey=Expense_Tracker
+serverUrl=http://localhost:9090
+serverVersion=9.9.8.100196
+dashboardUrl=http://localhost:9090/dashboard?id=Expense_Tracker
+ceTaskId=AZcXxzQpj7SG3Ie6GntX
+ceTaskUrl=http://localhost:9090/api/ce/task?id=AZcXxzQpj7SG3Ie6GntX

@@ -1,0 +1,4 @@
+{
+    "sonarQubeUri": "http://localhost:9090",
+    "projectKey": "Expense_Tracker"
+}
