@@ -29,4 +29,13 @@ Route::group(['prefix' => 'admin'], function () {
         Route::put('/{id}', [\App\Http\Controllers\CoaController::class, 'updateCoa'])->name('coa.update');
     });
 
+    Route::group(['prefix' => 'transaction'], function () {
+        Route::get('/', [\App\Http\Controllers\TransactionController::class, 'index'])->name('transaction.index');
+        Route::post('/', [\App\Http\Controllers\TransactionController::class, 'createTransaction'])->name('transaction.store');
+        Route::get('/list', [\App\Http\Controllers\TransactionController::class, 'transactionList'])->name('transaction.list');
+        Route::get('/{id}', [\App\Http\Controllers\TransactionController::class, 'transactionDetail'])->name('transaction.details');
+        Route::delete('/{id}', [\App\Http\Controllers\TransactionController::class, 'deleteTransaction'])->name('transaction.delete');
+        Route::put('/{id}', [\App\Http\Controllers\TransactionController::class, 'updateTransaction'])->name('transaction.update');
+    });
+
 });

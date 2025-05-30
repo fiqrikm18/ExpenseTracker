@@ -23,6 +23,10 @@ class CoaController extends Controller
 
     public function coaList(Request $request)
     {
+        if ($request->source == 'dropdown') {
+            $coas = $this->coaService->getAllCoa($request);
+            return $this->successResponse($coas, 'Coa retrieved successfully.');
+        }
         return $this->coaService->getAllCoa($request);
     }
 

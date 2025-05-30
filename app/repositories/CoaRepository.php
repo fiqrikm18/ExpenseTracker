@@ -63,6 +63,11 @@ class CoaRepository
         return $coaQuery;
     }
 
+    public function getAllCoa()
+    {
+        return Coa::all();
+    }
+
     public function findById($id)
     {
         return Coa::where('id', $id)->first();

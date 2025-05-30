@@ -15,7 +15,7 @@
         </button>
     </div>
 
-    <table id="coa-category-table" class="min-w-full text-sm text-left text-gray-700">
+    <table id="coa-table" class="min-w-full text-sm text-left text-gray-700">
         <thead class="bg-gray-100 text-xs uppercase text-gray-700">
         <tr>
             <th class="px-6 py-3" style="text-align: center;">Code</th>
@@ -24,7 +24,7 @@
             <th class="px-6 py-3" style="text-align: center;">Action</th>
         </tr>
         </thead>
-        <tbody class="bg-white divide-y divide-gray-200" id="coa-category-table-body">
+        <tbody class="bg-white divide-y divide-gray-200" id="coa-table-body">
         </tbody>
     </table>
 @endsection
@@ -35,12 +35,13 @@
 
             $(function () {
                 let url = '{{route('coa.list')}}';
-                $('#coa-category-table').DataTable({
+                $('#coa-table').DataTable({
                     processing: true,
                     serverSide: true,
                     ajax: url,
+                    order: [['code', 'desc']],
                     columns: [
-                        {data: 'code', name: 'code', className: 'text-center', textAlign: 'center'},
+                        {data: 'code', name: 'code', className: 'text-center', textAlign: 'center', orderable: true},
                         {data: 'name', textAlign: 'center', className: 'text-center', orderable: false},
                         {
                             data: 'category',
@@ -89,7 +90,7 @@
             $(document).on('click', '#saveEditCoaBtn', function (e) {
                 const modal = $('#confirmModal');
 
-                modal.find('#confirmModalTitle').text('Delete Coa Category');
+                modal.find('#confirmModalTitle').text('Edit Coa Category');
 
                 modal.find('#confirmModalBody').html(`
                 <div>
@@ -280,7 +281,7 @@
             }
 
             function reloadDatatable() {
-                $('#coa-category-table').DataTable().ajax.reload();
+                $('#coa-table').DataTable().ajax.reload();
             }
 
             function getCoaCategories(selectedId = null) {

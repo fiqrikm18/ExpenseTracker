@@ -21,6 +21,10 @@ class CoaService
 
     public function getAllCoa(Request $request)
     {
+        if ($request->source == 'dropdown') {
+            return $this->coaRepository->getAllCoa();
+        }
+
         $datableFilteringDto = DatatableFilteringDto::fromArray($request->all());
         $coaObj = $this->coaRepository->getCoaBuilder($datableFilteringDto);
         return DataTables::eloquent($coaObj)
