@@ -113,13 +113,15 @@
                 closeConfirmModal();
             });
 
-            $(document).on('click', '#deleteCoaCategoryConfirmBtn', function () {
+            $(document).on('click', '#deleteCoaCategoryConfirmBtn', function (e) {
+                e.preventDefault();
                 const id = $(this).data('id');
                 closeConfirmModal();
                 deleteCoaCategory(id);
             })
 
-            $(document).on('click', '#editCoaCategory', function () {
+            $(document).on('click', '#editCoaCategory', function (e) {
+                e.preventDefault();
                 const id = $(this).data('id');
                 editCoaCategory(id);
             });
@@ -150,7 +152,8 @@
                 showConfirmModal()
             });
 
-            $(document).on('click', '#editCoaCategoryConfirmBtn', function () {
+            $(document).on('click', '#editCoaCategoryConfirmBtn', function (e) {
+                e.preventDefault();
                 storeCoaCategory('edit');
             });
 

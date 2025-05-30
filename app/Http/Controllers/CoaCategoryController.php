@@ -27,7 +27,11 @@ class CoaCategoryController extends Controller
      */
     public function coaCategoryList(Request $request): JsonResponse
     {
-        return $this->coaCategoryService->getAllCoaCategories($request);
+        if ($request->source == 'dropdown') {
+            return $this->successResponse($this->coaCategoryService->getAllCoaCategories($request), 'Get Coa Category Successfully', Response::HTTP_OK);
+        } else {
+            return $this->coaCategoryService->getAllCoaCategories($request);
+        }
     }
 
     public function coaCategoryDetails(int $id): JsonResponse

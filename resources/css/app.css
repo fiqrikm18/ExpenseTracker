@@ -10,6 +10,6 @@
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-.dt-paging-button .current {
-    background-color: var(--color-blue-900);
+table.dataTable th.dt-type-numeric, table.dataTable th.dt-type-date, table.dataTable td.dt-type-numeric, table.dataTable td.dt-type-date {
+    text-align: center;
 }

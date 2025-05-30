@@ -8,6 +8,7 @@ use App\Models\CoaCategory;
 use App\repositories\CoaCategoryRepository;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Yajra\DataTables\Facades\DataTables;
 
 class CoaCategoryService
@@ -34,26 +35,35 @@ class CoaCategoryService
     /**
      * @throws \Exception
      */
-    public function getAllCoaCategories(Request $request): \Illuminate\Http\JsonResponse
+    public function getAllCoaCategories(Request $request): \Illuminate\Http\JsonResponse | \Illuminate\Database\Eloquent\Collection
     {
-        $datableFilteringDto = DatatableFilteringDto::fromArray($request->all());
-        $coaCatObj = $this->coaCategoryRepository->getCoaCategoriesBuilder($datableFilteringDto);
-        return DataTables::eloquent($coaCatObj)
-            ->addIndexColumn()
-            ->addColumn('action', function ($coaCat) {
-                return view('partials._action', [
-                    'coaCat' => $coaCat,
-                    'edit_btn_id' => 'editCoaCategory',
-                    'delete_btn_id' => 'deleteCoaCategory',
-                ]);
-            })
-            ->rawColumns(['action'])
-            ->make(true);
+        if ($request->source == 'dropdown') {
+            return $this->coaCategoryRepository->getCoaCategories();
+        } else {
+            $datableFilteringDto = DatatableFilteringDto::fromArray($request->all());
+            $coaCatObj = $this->coaCategoryRepository->getCoaCategoriesBuilder($datableFilteringDto);
+            return DataTables::eloquent($coaCatObj)
+                ->addIndexColumn()
+                ->addColumn('action', function ($coaCat) {
+                    return view('partials._action', [
+                        'data' => $coaCat,
+                        'edit_btn_id' => 'editCoaCategory',
+                        'delete_btn_id' => 'deleteCoaCategory',
+                    ]);
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
     }
 
     public function getCoaCategoryById(int $id)
     {
-        return $this->coaCategoryRepository->getCoaCategoryById($id);
+        $coaCategory = $this->coaCategoryRepository->getCoaCategoryById($id);
+        if (!$coaCategory) {
+            throw new NotFoundHttpException('Coa Category not found.');
+        }
+
+        return $coaCategory;
     }
 
     /**
@@ -63,7 +73,7 @@ class CoaCategoryService
     {
         $coaCategoryExist = $this->coaCategoryRepository->getCoaCategoryById($id);
         if (!$coaCategoryExist) {
-            throw new \Exception('Coa Category Not Found', JsonResponse::HTTP_NOT_FOUND);
+            throw new NotFoundHttpException('Coa Category not found.');
         }
 
         $coaCategoryDto = CoaCategoryDto::fromArray($request->all());

@@ -27,6 +27,11 @@ class CoaCategoryRepository
         return $coaCategoryQuery;
     }
 
+    public function getCoaCategories()
+    {
+        return CoaCategory::all();
+    }
+
     public function getCoaCategoryById(int $id)
     {
         return CoaCategory::where('id', $id)->first();

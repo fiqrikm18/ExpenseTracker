@@ -59,9 +59,8 @@
                 <ul class="space-y-2">
                     <li><a href="{{route('admin.index')}}" class="text-gray-700 hover:text-blue-600">Dashboard</a></li>
                     <li><a href="#" class="text-gray-700 hover:text-blue-600">Transaction</a></li>
-                    <li><a href="{{route('coa-category.index')}}" class="text-gray-700 hover:text-blue-600">COA
-                            Category</a></li>
-                    <li><a href="#" class="text-gray-700 hover:text-blue-600">COA</a></li>
+                    <li><a href="{{route('coa-category.index')}}" class="text-gray-700 hover:text-blue-600">COA Category</a></li>
+                    <li><a href="{{route('coa.index')}}" class="text-gray-700 hover:text-blue-600">COA</a></li>
                 </ul>
             </aside>
 
