@@ -51,4 +51,16 @@ class TransactionController extends Controller
         return $this->successResponse($transaction, 'Transaction retrieved successfully.');
     }
 
+    public function transactionChart(Request $request)
+    {
+        $chartData = $this->transactionService->getTransactionReportChart($request);
+        return $this->successResponse($chartData, 'Transaction retrieved successfully.');
+    }
+
+    public function transactionReport(Request $request)
+    {
+        $report = $this->transactionService->getTransactionReportMonthly($request);
+        return $this->successResponse($report, 'Transaction retrieved successfully.');
+    }
+
 }

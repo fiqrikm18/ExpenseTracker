@@ -98,6 +98,7 @@
 
 <div id="toastContainer" class="fixed top-5 right-5 z-50 space-y-2"></div>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     function showModal() {
         const modal = $('#myModal');

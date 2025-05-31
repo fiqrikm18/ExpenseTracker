@@ -22,6 +22,7 @@
             <th class="px-6 py-3" style="text-align: center;">Description</th>
             <th class="px-6 py-3" style="text-align: center;">Coa</th>
             <th class="px-6 py-3" style="text-align: center;">Amount</th>
+            <th class="px-6 py-3" style="text-align: center;">Transaction Type</th>
             <th class="px-6 py-3" style="text-align: center;">Action</th>
         </tr>
         </thead>
@@ -46,6 +47,7 @@
                         {data: 'description', name: 'description', className: 'text-center', textAlign: 'center', orderable: false},
                         {data: 'coa_name', name: 'coa_name', className: 'text-center', textAlign: 'center', orderable: false},
                         {data: 'amount', name: 'amount', className: 'text-center', textAlign: 'center', orderable: false},
+                        {data: 'type', name: 'type', className: 'text-center', textAlign: 'center', orderable: false},
                         {data: 'action', textAlign: 'center', className: 'text-center', orderable: false},
                     ],
 
