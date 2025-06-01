@@ -5,7 +5,7 @@ this is a simple expense tracker system made with laravel, using laravel balde a
 - PHP 8.3
 - PostgreSQL
 
-## Installation
+## Installation Step
 - Clone this project using command `git clone git@github.com:fiqrikm18/ExpenseTracker.git`
 - Go to inside project directory.
 - Copy `.env.example` to `.env`.
