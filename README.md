@@ -20,5 +20,6 @@ DB_PASSWORD=postgres
 ```
 - Run command `composer install` to install dependencies needed by app.
 - Run `npm run install` or `yarn install` for install dependencies for view.
+- Run `npm run build` or `yarn build` to store assets on public.
 - Run command `php artisan migrate` and `php artisan migrate --seed` to run database migration and seed.
 - Run `php artisan serve` to run application or if you are using laravel herd or valet just open your local domain on browser.
