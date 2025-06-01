@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\TransactionExport;
 use App\Http\Requests\CreateTransactionRequest;
 use App\services\TransactionService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TransactionController extends Controller
 {
@@ -63,4 +65,8 @@ class TransactionController extends Controller
         return $this->successResponse($report, 'Transaction retrieved successfully.');
     }
 
+    public function exportTransaction(Request $request)
+    {
+        return Excel::download(new TransactionExport($this->transactionService), 'transactions.xlsx');
+    }
 }

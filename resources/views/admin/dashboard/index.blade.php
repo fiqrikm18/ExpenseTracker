@@ -130,7 +130,7 @@
                                     return filter.month == i+1;
                                 })[0];
 
-                                totalIncome += row !== undefined ? row.amount : 0;
+                                totalIncome += row !== undefined ? parseInt(row.amount) : 0;
                             });
 
                             tableBodyContent += `<td class="px-6 py-3 text-xs font-semibold text-gray-700 uppercase text-center">${totalIncome}</td>`;
@@ -160,7 +160,7 @@
                                     return filter.month == i+1;
                                 })[0];
 
-                                totalExpense += row !== undefined ? row.amount : 0;
+                                totalExpense += row !== undefined ? parseInt(row.amount) : 0;
                             });
 
                             tableBodyContent += `<td class="px-6 py-3 text-xs font-semibold text-gray-700 uppercase text-center">${totalExpense}</td>`;

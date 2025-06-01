@@ -35,6 +35,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/list', [\App\Http\Controllers\TransactionController::class, 'transactionList'])->name('transaction.list');
         Route::get('/chart', [\App\Http\Controllers\TransactionController::class, 'transactionChart'])->name('transaction.chart');
         Route::get('/report', [\App\Http\Controllers\TransactionController::class, 'transactionReport'])->name('transaction.report');
+        Route::get('/export', [\App\Http\Controllers\TransactionController::class, 'exportTransaction'])->name('transaction.export');
         Route::get('/{id}', [\App\Http\Controllers\TransactionController::class, 'transactionDetail'])->name('transaction.details');
         Route::delete('/{id}', [\App\Http\Controllers\TransactionController::class, 'deleteTransaction'])->name('transaction.delete');
         Route::put('/{id}', [\App\Http\Controllers\TransactionController::class, 'updateTransaction'])->name('transaction.update');

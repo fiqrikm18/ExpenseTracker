@@ -8,11 +8,19 @@
     <div class="flex flex-row justify-between items-center mb-8">
         <h1 class="text-2xl font-bold">Transaction Management</h1>
 
-        <button
-            id="addTransactionBtn"
-            class="flex flex-row gap-2 items-center justify-center bg-blue-100 text-blue-900 hover:bg-blue-900 hover:text-blue-100 py-2 px-4 rounded-md">
-            @svg('heroicon-o-plus', 'w-6 h-6 border-blue-900') Add Transaction
-        </button>
+        <div class="flex flex-row gap-2">
+            <button
+                id="addTransactionBtn"
+                class="flex flex-row gap-2 items-center justify-center bg-blue-100 text-blue-900 hover:bg-blue-900 hover:text-blue-100 py-2 px-4 rounded-md">
+                @svg('heroicon-o-plus', 'w-6 h-6 border-blue-900') Add Transaction
+            </button>
+            <a
+                href="{{route('transaction.export')}}"
+                id="addTransactionBtn"
+                class="flex flex-row gap-2 items-center justify-center bg-blue-100 text-blue-900 hover:bg-blue-900 hover:text-blue-100 py-2 px-4 rounded-md">
+                @svg('heroicon-o-cloud-arrow-down', 'w-6 h-6 border-blue-900') Export Transaction
+            </a>
+        </div>
     </div>
 
     <table id="transaction-table" class="min-w-full text-sm text-left text-gray-700">
